@@ -16,22 +16,32 @@
       }
     </script>
     <script type="module" src="index.tsx"></script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <main id="chat-container" role="log" aria-live="polite">
         <div class="message ai-message">
-            <p>Hello! How can I help you today?</p>
+            <p>Hello! How can I help you today? Feel free to attach a file (PDF, TXT, CSV) and ask questions about it.</p>
         </div>
     </main>
     <form id="chat-form">
-        <input type="text" id="prompt-input" placeholder="Type your message..." autocomplete="off" aria-label="Chat input">
-        <button type="submit" id="send-button" aria-label="Send message">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-            </svg>
-        </button>
+        <div id="file-preview-container" class="hidden">
+            <span id="file-name"></span>
+            <button type="button" id="clear-file-button" aria-label="Clear selected file">&times;</button>
+        </div>
+        <div id="input-container">
+            <input type="file" id="file-input" accept=".pdf,.txt,.csv" hidden>
+            <label for="file-input" id="attach-button" aria-label="Attach file">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 0 1 5 0v10.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5a4 4 0 0 0-8 0v11.5c0 2.76 2.24 5 5 5s5-2.24 5-5V6h-1.5z"></path>
+                </svg>
+            </label>
+            <input type="text" id="prompt-input" placeholder="Type your message..." autocomplete="off" aria-label="Chat input">
+            <button type="submit" id="send-button" aria-label="Send message">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+            </button>
+        </div>
     </form>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
